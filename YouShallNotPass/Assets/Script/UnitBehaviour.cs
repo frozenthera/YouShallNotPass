@@ -14,7 +14,7 @@ public abstract class UnitBehaviour : MonoBehaviour
         curPos = new Grid(-1, -1);
     }
 
-    void Update()
+    protected virtual void Update()
     {
         curPos = GetCurGrid();
     }
