@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [SerializeField]
-    public bool[,] pieceMap = new bool[3,3];
+    public List<UnitBehaviour>[,] pieceMap = new List<UnitBehaviour>[3,3];
 
     private void Awake()
     {
@@ -16,6 +16,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        
+
     }
 }

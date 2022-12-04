@@ -9,7 +9,7 @@ public abstract class UnitBehaviour : MonoBehaviour
     public Grid curPos;
     protected float attack;
     
-    void Start()
+    protected virtual void Start()
     {
         curPos = new Grid(-1, -1);
     }
@@ -32,9 +32,9 @@ public abstract class UnitBehaviour : MonoBehaviour
         {
             // Debug.Log(x + ", " + y + ", " + curPos.X + ", " + curPos.Y);
             if(curPos.X > -1 && curPos.Y > -1)
-                GameManager.Instance.pieceMap[curPos.X, curPos.Y] = false;
+                GameManager.Instance.pieceMap[curPos.X, curPos.Y].Remove(this);
             if(x > -1 && y > -1) 
-                GameManager.Instance.pieceMap[x, y] = true;
+                GameManager.Instance.pieceMap[x, y].Add(this);
         }
         return updated;
     }
