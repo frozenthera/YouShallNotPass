@@ -31,9 +31,9 @@ public abstract class UnitBehaviour : MonoBehaviour
         if(updated.X != curPos.X || updated.Y != curPos.Y)
         {
             // Debug.Log(x + ", " + y + ", " + curPos.X + ", " + curPos.Y);
-            if(curPos.X > -1 && curPos.Y > -1)
+            if((curPos.X > -1 && curPos.Y > -1) && (curPos.X < 3 && curPos.Y < 3))
                 GameManager.Instance.pieceMap[curPos.X, curPos.Y].Remove(this);
-            if(x > -1 && y > -1) 
+            if((x > -1 && y > -1) && (x < 3 && y < 3)) 
                 GameManager.Instance.pieceMap[x, y].Add(this);
         }
         return updated;
