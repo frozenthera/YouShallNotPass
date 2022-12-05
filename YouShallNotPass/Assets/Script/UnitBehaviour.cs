@@ -4,14 +4,18 @@ using UnityEngine;
 
 public abstract class UnitBehaviour : MonoBehaviour
 {
+    [SerializeField]
     protected float maxHP;
     protected float curHP;
     public Grid curPos;
+
+    [SerializeField]
     protected float attack;
     
     protected virtual void Start()
     {
         curPos = new Grid(-1, -1);
+        curHP = maxHP;
     }
 
     protected virtual void Update()
@@ -47,6 +51,12 @@ public abstract class UnitBehaviour : MonoBehaviour
     public void GetDamage(float damage)
     {
         curHP -= damage;
-        if(curHP < 0) Destroyed();
+        Debug.Log(name + ", " + damage);
+        if(curHP <= 0) Destroyed();
+    }
+
+    public void AssignDamage(float damage)
+    {
+        attack = damage;
     }
 }

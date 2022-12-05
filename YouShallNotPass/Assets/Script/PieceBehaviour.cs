@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PieceBehaviour : UnitBehaviour
 {
-    private float curAttackRate = 0f;
+    [SerializeField]
     protected float attackRate = 1f; 
+    [SerializeField]
     protected bool isAttackable = false;
-    protected List<EnemyBehaviour> InsightEnemy = new();
+
+    public UnitBehaviour target;
 
     protected override void Start()
     {
@@ -15,36 +17,25 @@ public class PieceBehaviour : UnitBehaviour
         StartCoroutine(AttackRateDetermine());
     }
 
-    protected void AddEnemy(EnemyBehaviour enemy)
+    protected override void Update()
     {
-        InsightEnemy.Add(enemy);
-    }
-
-    protected void RemoveEnemy(EnemyBehaviour enemy)
-    {
-        InsightEnemy.Remove(enemy);
-    }
-
-    public override void Destroyed()
-    {
+        base.Update();
         
-    }
-
-    private IEnumerator AttackRateDetermine()
-    {
-        while(true)
+        UnitBehaviour target = DetermineAttackableEnemy();
+        if(target != null && isAttackable)
         {
-            yield return null;
-            if(!isAttackable)
-            {
-                curAttackRate += Time.deltaTime;
-                if(curAttackRate >= attackRate)
-                {
-                    isAttackable = true;
-                    curAttackRate = 0f;
-                }
-            }
+            PieceAttack(target);
         }
     }
 
+    protected virtual UnitBehaviour DetermineAttackableEnemy() { return null;}
+    protected virtual void PieceAttack(UnitBehaviour target){}
+
+    public override void Destroyed(){}
+
+    protected IEnumerator AttackRateDetermine()
+    {
+        yield return new WaitForSeconds(attackRate);
+        isAttackable = true;
+    }
 }
