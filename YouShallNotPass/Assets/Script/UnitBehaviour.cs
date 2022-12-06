@@ -51,7 +51,7 @@ public abstract class UnitBehaviour : MonoBehaviour
     public void GetDamage(float damage)
     {
         curHP -= damage;
-        Debug.Log(name + ", " + damage);
+        //Debug.Log(name + ", " + damage);
         if(curHP <= 0) Destroyed();
     }
 
