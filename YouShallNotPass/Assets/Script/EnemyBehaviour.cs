@@ -10,6 +10,7 @@ public class EnemyBehaviour : UnitBehaviour
 
     protected float attackRate = 1f; 
     protected bool isAttackable = true;
+    
 
     protected override void Start()
     {
@@ -28,6 +29,8 @@ public class EnemyBehaviour : UnitBehaviour
         }else{                         // cur Grid is Empty => Move
             move();
         }
+
+        destroyOnBoardEdge();
     }
 
 
@@ -55,7 +58,7 @@ public class EnemyBehaviour : UnitBehaviour
 
     UnitBehaviour checkGridforPiece()
     {
-        if(curPos.X > -1 && curPos.X < 3 && curPos.Y > -1 && curPos.Y < 3){
+        if(curPos.X > 0 && curPos.X < 3 && curPos.Y > 0 && curPos.Y < 3){
             List<UnitBehaviour> thisGridMap = GameManager.Instance.pieceMap[curPos.X, curPos.Y];
         
             foreach(var i in thisGridMap){
@@ -72,7 +75,8 @@ public class EnemyBehaviour : UnitBehaviour
 
     public override void Destroyed()
     {
-        GameManager.Instance.pieceMap[curPos.X, curPos.Y].Remove(this);
+        //GameManager.Instance.pieceMap[curPos.X, curPos.Y].Remove(this);
+        Destroy(gameObject);
     }
 
 
@@ -80,6 +84,30 @@ public class EnemyBehaviour : UnitBehaviour
     {           
         yield return new WaitForSecondsRealtime(attackRate);
         isAttackable = true;
+    }
+
+
+    private void destroyOnBoardEdge()
+    {
+        bool destFlg = false;
+
+        if(moveDirection.z == 1){
+            if(curPos.Y >= 3)   destFlg = true; 
+        }else if(moveDirection.z == -1){
+            if(curPos.Y < 0)   destFlg = true; 
+        }else if(moveDirection.x == 1){
+            if(curPos.X >= 3)   destFlg = true; 
+        }else if(moveDirection.x == -1){
+            if(curPos.X < 0)   destFlg = true; 
+        }else{
+            destFlg = false;
+        }
+
+        if(destFlg){
+            print("?");
+            Destroyed();
+
+        }
     }
 
 

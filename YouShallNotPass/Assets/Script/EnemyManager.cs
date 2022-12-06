@@ -13,7 +13,7 @@ public class EnemyManager : MonoBehaviour
     public EnemyBehaviour enemyPrefab;
     public List<Transform> spawnTransformList;  // spawn points
     private float enemyDamage = 1f;
-    private float enemySpeed = 1f;
+    private float enemySpeed = 3f;
 
 
 
@@ -23,7 +23,7 @@ public class EnemyManager : MonoBehaviour
     11  @   @   @   3
     10  @   @   @   4
     9   @   @   @   5
-        8   7   6
+    원점8   7   6
      
             |
             |

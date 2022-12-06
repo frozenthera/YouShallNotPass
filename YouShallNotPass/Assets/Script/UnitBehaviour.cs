@@ -25,8 +25,19 @@ public abstract class UnitBehaviour : MonoBehaviour
     {
         float planeSize = 10f;
         int x, y;
-        x = (int)(transform.position.x * 3 / planeSize);
-        y = (int)(transform.position.z * 3 / planeSize);
+        
+        if(transform.position.x < 0){
+            x = -1 - (int)(transform.position.x * 3 / planeSize);
+        }else{
+            x = (int)(transform.position.x * 3 / planeSize);
+        }
+
+        if(transform.position.z < 0){
+            y = -1 - (int)(transform.position.z * 3 / planeSize);
+        }else{
+            y = (int)(transform.position.z * 3 / planeSize);
+        }
+        
         Grid updated = new Grid(x,y);
         if(updated.X != curPos.X || updated.Y != curPos.Y)
         {
