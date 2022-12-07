@@ -77,6 +77,12 @@ public class EnemyBehaviour : UnitBehaviour
     }
 
 
+    public void DestroyedonEdge()
+    {
+        Destroy(this.gameObject);
+    }
+
+
     private IEnumerator AttackTimer()
     {           
         yield return new WaitForSeconds(attackRate);
@@ -101,8 +107,8 @@ public class EnemyBehaviour : UnitBehaviour
         }
 
         if(destFlg){
-            print("?");
-            Destroyed();
+            //print("destroyed");
+            DestroyedonEdge();
 
         }
     }

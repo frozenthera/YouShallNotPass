@@ -35,10 +35,7 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnatPosition(0);
-        SpawnatPosition(10);
-        SpawnatPosition(8);
-        SpawnatPosition(4);
+        StartCoroutine(SpawnRoutine());
     }
 
     // Update is called once per frame
@@ -77,8 +74,36 @@ public class EnemyManager : MonoBehaviour
                 print("SpawnatPosition switch statement Error");
                 break;
         }
+    }
 
 
+    void SpawnRand(int n)
+    {
+        bool[] spawnFlg = new bool[12];
+        
+        for(int i=0;i<n;i++){
+            int rand = Random.Range(1,12);
 
+            if(spawnFlg[rand] == false){
+                SpawnatPosition(rand);
+                spawnFlg[rand] = true;
+            }else{
+                i--;
+            }
+        }
+    }
+
+
+    private IEnumerator SpawnRoutine()
+    {
+        bool someFlg = true;
+        while(someFlg){
+            float interval = GameManager.Instance.spawnInterval;
+            float rate = GameManager.Instance.spawnRate;
+
+            SpawnRand(Mathf.FloorToInt(interval * rate));
+            print("spawnRate : " + rate);
+            yield return new WaitForSeconds(interval);
+        }
     }
 }

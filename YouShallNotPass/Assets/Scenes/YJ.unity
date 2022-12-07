@@ -339,6 +339,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5b34d13382d3ae4daf662e5706a8149, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnRate: 0.2
+  spawnInterval: 1
 --- !u!4 &694815129
 Transform:
   m_ObjectHideFlags: 0
@@ -557,10 +559,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1051773511}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d135822bb61bb9419793f49fe5a1bef, type: 3}
+  m_Script: {fileID: 11500000, guid: 990f37dfe81e879468c05696bb9a8465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 5634013293087693498, guid: f3b96248c0431df419d61323203d6e90, type: 3}
+  enemyPrefab: {fileID: 5634013293087693498, guid: 10954f535cb025b4787550b86252786f, type: 3}
   spawnTransformList:
   - {fileID: 730526546}
   - {fileID: 1473313693}
