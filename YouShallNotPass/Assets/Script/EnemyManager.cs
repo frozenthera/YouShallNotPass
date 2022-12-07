@@ -10,6 +10,8 @@ public class EnemyManager : MonoBehaviour
     Vector3 leftDir     = Vector3.left;
 
 
+    public EnemyIndicator enemyIndicator;
+    private float indicatorDestroyTime = 0.5f;
     public EnemyBehaviour enemyPrefab;
     public List<Transform> spawnTransformList;  // spawn points
     private float enemyDamage = 1f;
@@ -45,12 +47,18 @@ public class EnemyManager : MonoBehaviour
     }
 
 
-    void SpawnatPosition(int position)
+    private IEnumerator SpawnatPosition(int position)
     {
         // spawn point
         Transform spawnTransform = spawnTransformList[position];
 
-        // enemy direction
+        // enemy Spawn indicator
+        EnemyIndicator newIndicator = Instantiate(enemyIndicator, spawnTransform);
+
+
+        // wait delay(0.5s)
+        yield return new WaitForSeconds(indicatorDestroyTime);
+        
 
         // spawn enemy
         EnemyBehaviour newEnemy = Instantiate(enemyPrefab, spawnTransform );
@@ -85,7 +93,7 @@ public class EnemyManager : MonoBehaviour
             int rand = Random.Range(1,12);
 
             if(spawnFlg[rand] == false){
-                SpawnatPosition(rand);
+                StartCoroutine(SpawnatPosition(rand));
                 spawnFlg[rand] = true;
             }else{
                 i--;

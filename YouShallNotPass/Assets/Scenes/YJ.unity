@@ -562,6 +562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990f37dfe81e879468c05696bb9a8465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyIndicator: {fileID: 8297362364912639029, guid: 5c30a755002aacd4196911f2d72494b9, type: 3}
   enemyPrefab: {fileID: 5634013293087693498, guid: 10954f535cb025b4787550b86252786f, type: 3}
   spawnTransformList:
   - {fileID: 730526546}
