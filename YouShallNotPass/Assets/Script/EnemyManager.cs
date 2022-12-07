@@ -58,7 +58,7 @@ public class EnemyManager : MonoBehaviour
         // spawn enemy
         EnemyBehaviour newEnemy = Instantiate(enemyPrefab, spawnTransform );
 
-        newEnemy.damage = enemyDamage;
+        newEnemy.AssignDamage(enemyDamage);
         newEnemy.moveSpeed = enemySpeed;
         switch(position){
             case 0: case 1: case 2: 

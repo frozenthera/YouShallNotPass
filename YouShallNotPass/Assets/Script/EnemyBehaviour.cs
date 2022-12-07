@@ -6,7 +6,7 @@ public class EnemyBehaviour : UnitBehaviour
 {
     public Vector3 moveDirection = Vector3.forward;
     public float moveSpeed = 1f;
-    public float damage = 3f;
+    //public float damage = 3f;
 
     protected float attackRate = 1f; 
     protected bool isAttackable = true;
@@ -47,8 +47,8 @@ public class EnemyBehaviour : UnitBehaviour
         }
 
         if(isAttackable){
-            piece.GetDamage(damage);
-            print("attacked! (target : " + piece + ")");
+            piece.GetDamage(attack);
+            //print("attacked! (target : " + piece + ")");
             // + effect
             isAttackable = false;
             StartCoroutine("AttackTimer");
@@ -75,14 +75,14 @@ public class EnemyBehaviour : UnitBehaviour
 
     public override void Destroyed()
     {
-        //GameManager.Instance.pieceMap[curPos.X, curPos.Y].Remove(this);
-        Destroy(gameObject);
+        GameManager.Instance.pieceMap[curPos.X, curPos.Y].Remove(this);
+        Destroy(this.gameObject);
     }
 
 
     private IEnumerator AttackTimer()
     {           
-        yield return new WaitForSecondsRealtime(attackRate);
+        yield return new WaitForSeconds(attackRate);
         isAttackable = true;
     }
 
