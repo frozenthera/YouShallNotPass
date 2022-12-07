@@ -58,17 +58,14 @@ public class EnemyBehaviour : UnitBehaviour
 
     UnitBehaviour checkGridforPiece()
     {
-        if(curPos.X > 0 && curPos.X < 3 && curPos.Y > 0 && curPos.Y < 3){
+        if(curPos.X > -1 && curPos.X < 3 && curPos.Y > -1 && curPos.Y < 3){
             List<UnitBehaviour> thisGridMap = GameManager.Instance.pieceMap[curPos.X, curPos.Y];
-        
             foreach(var i in thisGridMap){
                 if(i.CompareTag("Piece") ){
                     return i;
                 }
             }
         }
-        
-
         return null;
     }
 
