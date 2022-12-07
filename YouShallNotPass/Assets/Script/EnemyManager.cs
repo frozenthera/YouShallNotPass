@@ -13,7 +13,7 @@ public class EnemyManager : MonoBehaviour
     public EnemyBehaviour enemyPrefab;
     public List<Transform> spawnTransformList;  // spawn points
     private float enemyDamage = 1f;
-    private float enemySpeed = 3f;
+    private float enemySpeed = .02f;
 
 
 
@@ -53,7 +53,8 @@ public class EnemyManager : MonoBehaviour
         // enemy direction
 
         // spawn enemy
-        EnemyBehaviour newEnemy = Instantiate(enemyPrefab, spawnTransform );
+        EnemyBehaviour newEnemy = Instantiate(enemyPrefab, spawnTransform.parent.parent);
+        newEnemy.transform.position = spawnTransform.position;
 
         newEnemy.AssignDamage(enemyDamage);
         newEnemy.moveSpeed = enemySpeed;
@@ -102,7 +103,7 @@ public class EnemyManager : MonoBehaviour
             float rate = GameManager.Instance.spawnRate;
 
             SpawnRand(Mathf.FloorToInt(interval * rate));
-            print("spawnRate : " + rate);
+            //print("spawnRate : " + rate);
             yield return new WaitForSeconds(interval);
         }
     }

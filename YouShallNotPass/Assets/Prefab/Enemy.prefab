@@ -326,13 +326,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0049a628948b73c44a52d6cf528f4f57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 0
+  maxHP: 10
   curHP: 0
-  attack: 0
+  x: 0
+  y: 0
+  attack: 2
   hpBar: {fileID: 9132893662140682601}
   canvasTran: {fileID: 9098661381819438444}
   moveDirection: {x: 0, y: 0, z: 1}
-  moveSpeed: 1
+  moveSpeed: 0.02
 --- !u!1 &6777097561510920259
 GameObject:
   m_ObjectHideFlags: 0

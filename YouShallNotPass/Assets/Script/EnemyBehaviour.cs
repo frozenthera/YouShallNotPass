@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyBehaviour : UnitBehaviour
 {
     public Vector3 moveDirection = Vector3.forward;
-    public float moveSpeed = 1f;
+    public float moveSpeed = 0.02f;
     //public float damage = 3f;
 
     protected float attackRate = 1f; 

@@ -5,10 +5,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public float spawnRate = 0.2f;
-    private float init_spawnRate = 0.2f;
+    public float spawnRate = 1f;
+    private float init_spawnRate = 1f;
     private float gameTimer = 0f;
-    private float timer_factor = 1/20f;
+    private float timer_factor = -0f; //1/20f;
 
     public float spawnInterval = 5f;
 

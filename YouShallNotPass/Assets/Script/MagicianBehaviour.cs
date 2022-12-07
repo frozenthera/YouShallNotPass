@@ -8,15 +8,26 @@ public class MagicianBehaviour : PieceBehaviour
     {
         if(curPos.X > -1 && curPos.X < 3 && curPos.Y > -1 && curPos.Y < 3)
         {
-            List<UnitBehaviour> thisGridMap = GameManager.Instance.pieceMap[curPos.X, curPos.Y];
-            foreach(var i in thisGridMap){
-                if(i.CompareTag("Enemy"))
+            for(int i=-1; i<2; i++)
+            {
+                for(int j=-1; j<2; j++)
                 {
-                    return i;
+                    if(i == 0 && j == 0 ) continue;
+                    if(curPos.X +i> -1 && curPos.X +i < 3 && curPos.Y +j > -1 && curPos.Y +j < 3)
+                    {
+                        List<UnitBehaviour> thisGridMap = GameManager.Instance.pieceMap[curPos.X+i, curPos.Y+j];
+                        foreach(var unit in thisGridMap){
+                            if(unit == this) continue;
+                            if(unit.CompareTag("Enemy"))
+                            {
+                                return unit;
+                            }
+                        }
+                    }
                 }
             }
         }
-        return null;
+        return null;    
     }
 
     protected override void PieceAttack(UnitBehaviour target)

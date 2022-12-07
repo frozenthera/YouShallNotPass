@@ -10,6 +10,8 @@ public abstract class UnitBehaviour : MonoBehaviour
     [SerializeField]
     protected float curHP;
     public Grid curPos;
+    
+    public int x,y;
 
     [SerializeField]
     protected float attack;
@@ -32,27 +34,20 @@ public abstract class UnitBehaviour : MonoBehaviour
         curPos = GetCurGrid();
         UpdateCanvasToCam();
 
+        x = curPos.X;
+        y = curPos.Y;
     }
 
     public abstract void Destroyed();
 
     protected Grid GetCurGrid()
     {
-        float planeSize = 10f;
+        float planeSize = .2f;
         int x, y;
-        
-        if(transform.position.x < 0){
-            x = -1 - (int)(transform.position.x * 3 / planeSize);
-        }else{
-            x = (int)(transform.position.x * 3 / planeSize);
-        }
 
-        if(transform.position.z < 0){
-            y = -1 - (int)(transform.position.z * 3 / planeSize);
-        }else{
-            y = (int)(transform.position.z * 3 / planeSize);
-        }
-        
+        x = Mathf.FloorToInt((transform.position.x+planeSize/2) * 3 / planeSize);
+        y = Mathf.FloorToInt((transform.position.z+planeSize/2) * 3 / planeSize);
+
         Grid updated = new Grid(x,y);
         if(updated.X != curPos.X || updated.Y != curPos.Y)
         {
@@ -93,6 +88,11 @@ public abstract class UnitBehaviour : MonoBehaviour
     public void UpdateHP()
     {
         hpBar.value = (float)curHP/maxHP;
+    }
+
+    public bool isFullHP()
+    {
+        return curHP == maxHP;
     }
 
     public void UpdateCanvasToCam()
