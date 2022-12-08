@@ -31,7 +31,7 @@ public class ImageTracking : MonoBehaviour
             else
             {
                 newPrefab.transform.SetParent(baseSceneObj);
-                newPrefab.transform.position = new Vector3(0,.02f,0);
+                newPrefab.transform.position = new Vector3(0,0f,0);
             }
         }
     }
