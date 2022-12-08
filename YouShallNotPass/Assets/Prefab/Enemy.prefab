@@ -716,15 +716,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1381159427808995553, guid: d8dc5dbbbd4a1e642863812329cf4b1c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 1381159427808995553, guid: d8dc5dbbbd4a1e642863812329cf4b1c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 1381159427808995553, guid: d8dc5dbbbd4a1e642863812329cf4b1c, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 1381159427808995553, guid: d8dc5dbbbd4a1e642863812329cf4b1c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -768,7 +768,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3195571666665902376, guid: d8dc5dbbbd4a1e642863812329cf4b1c, type: 3}
       propertyPath: InitialModule.gravityModifier.scalar
-      value: 5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6208645879156340586, guid: d8dc5dbbbd4a1e642863812329cf4b1c, type: 3}
       propertyPath: m_Name

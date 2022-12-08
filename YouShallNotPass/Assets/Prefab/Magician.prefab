@@ -438,8 +438,8 @@ MonoBehaviour:
   hpBar: {fileID: 72349830891792285}
   canvasTran: {fileID: 72349831092760253}
   gridText: {fileID: 2422711732646539626}
-  HitParticle: {fileID: 0}
-  HealParticle: {fileID: 0}
+  HitParticle: {fileID: 5308104152144138298}
+  HealParticle: {fileID: 6960767135134173024}
   attackRate: 1
   isAttackable: 0
   target: {fileID: 0}
@@ -694,6 +694,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e8030af4cd88ab4e833fa3fe7e887d6, type: 3}
+--- !u!198 &6960767135134173024 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4397994173032680594, guid: 0e8030af4cd88ab4e833fa3fe7e887d6, type: 3}
+  m_PrefabInstance: {fileID: 6742254446454705138}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8011541242400722264 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3656917272403166890, guid: 0e8030af4cd88ab4e833fa3fe7e887d6, type: 3}
@@ -772,6 +777,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8dc5dbbbd4a1e642863812329cf4b1c, type: 3}
+--- !u!198 &5308104152144138298 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3195571666665902376, guid: d8dc5dbbbd4a1e642863812329cf4b1c, type: 3}
+  m_PrefabInstance: {fileID: 7346180119766974738}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8563597763387058675 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1381159427808995553, guid: d8dc5dbbbd4a1e642863812329cf4b1c, type: 3}
