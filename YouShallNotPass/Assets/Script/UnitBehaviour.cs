@@ -23,6 +23,10 @@ public abstract class UnitBehaviour : MonoBehaviour
     [SerializeField]
     private Text gridText;
 
+    [SerializeField]
+    private ParticleSystem HitParticle;
+    [SerializeField]
+    private ParticleSystem HealParticle;
 
     protected virtual void Start()
     {
@@ -30,6 +34,7 @@ public abstract class UnitBehaviour : MonoBehaviour
         curHP = maxHP;
         canvasTran.GetComponent<Canvas>().worldCamera = Camera.main;
         UpdateHP();
+
     }
 
     protected virtual void Update()
@@ -74,6 +79,7 @@ public abstract class UnitBehaviour : MonoBehaviour
         curHP -= damage;
         //Debug.Log(name + ", " + damage);
         UpdateHP();
+        HitParticle.Play();
         if(curHP <= 0) Destroyed();
     }
 
@@ -81,6 +87,7 @@ public abstract class UnitBehaviour : MonoBehaviour
     {
         curHP += heal;
         if(curHP > maxHP) curHP = maxHP;
+        HealParticle.Play();
         UpdateHP();
     }
 
