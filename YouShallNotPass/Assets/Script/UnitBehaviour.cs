@@ -26,6 +26,7 @@ public abstract class UnitBehaviour : MonoBehaviour
     {
         curPos = new Grid(-1, -1);
         curHP = maxHP;
+        canvasTran.GetComponent<Canvas>().worldCamera = Camera.main;
         UpdateHP();
     }
 
