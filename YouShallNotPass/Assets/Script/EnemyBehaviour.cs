@@ -6,8 +6,6 @@ public class EnemyBehaviour : UnitBehaviour
 {
     public Vector3 moveDirection = Vector3.forward;
     public float moveSpeed = 0.02f;
-    //public float damage = 3f;
-
     protected float attackRate = 1f; 
     protected bool isAttackable = true;
     
@@ -21,8 +19,6 @@ public class EnemyBehaviour : UnitBehaviour
     protected override void Update()
     {
         base.Update();
-        //Debug.Log(curPos.X + ", " + curPos.Y);
-
         UnitBehaviour Piece;
         if(Piece = checkGridforPiece()){    // piece is in the current Grid => fight;
             Attack(Piece);
@@ -48,8 +44,6 @@ public class EnemyBehaviour : UnitBehaviour
 
         if(isAttackable){
             piece.GetDamage(attack);
-            //print("attacked! (target : " + piece + ")");
-            // + effect
             isAttackable = false;
             StartCoroutine("AttackTimer");
         }
@@ -93,7 +87,6 @@ public class EnemyBehaviour : UnitBehaviour
     private void destroyOnBoardEdge()
     {
         bool destFlg = false;
-
         if(moveDirection.z == 1){
             if(curPos.Y >= 3)   destFlg = true; 
         }else if(moveDirection.z == -1){
@@ -105,13 +98,8 @@ public class EnemyBehaviour : UnitBehaviour
         }else{
             destFlg = false;
         }
-
         if(destFlg){
-            //print("destroyed");
             DestroyedonEdge();
-
         }
     }
-
-
 }

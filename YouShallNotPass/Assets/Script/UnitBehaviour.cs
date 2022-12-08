@@ -43,8 +43,6 @@ public abstract class UnitBehaviour : MonoBehaviour
         UpdateCanvasToCam();
 
         gridText.text = $"{curHP}";
-        //gridText.text = $"{x} , {y} || {transform.localPosition} || {transform.position}";
-        // gridText.text = $"{transform.parent.transform.eulerAngles}";
     }
 
     public abstract void Destroyed();
@@ -60,7 +58,6 @@ public abstract class UnitBehaviour : MonoBehaviour
         Grid updated = new Grid(x,y);
         if(updated.X != curPos.X || updated.Y != curPos.Y)
         {
-            // Debug.Log(x + ", " + y + ", " + curPos.X + ", " + curPos.Y);
             if((curPos.X > -1 && curPos.Y > -1) && (curPos.X < 3 && curPos.Y < 3))
                 GameManager.Instance.pieceMap[curPos.X, curPos.Y].Remove(this);
             if((x > -1 && y > -1) && (x < 3 && y < 3)) 
@@ -77,7 +74,6 @@ public abstract class UnitBehaviour : MonoBehaviour
     public void GetDamage(float damage)
     {
         curHP -= damage;
-        //Debug.Log(name + ", " + damage);
         UpdateHP();
         HitParticle.Play();
         if(curHP <= 0) Destroyed();

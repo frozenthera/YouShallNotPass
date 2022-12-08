@@ -25,5 +25,4 @@ public class WarriorBehaviour : PieceBehaviour
         isAttackable = false;
         StartCoroutine(AttackRateDetermine());
     }
-
 }

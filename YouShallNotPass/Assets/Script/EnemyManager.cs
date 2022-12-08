@@ -61,10 +61,7 @@ public class EnemyManager : MonoBehaviour
         
 
         // spawn enemy
-        EnemyBehaviour newEnemy = Instantiate(enemyPrefab, spawnTransform.transform.localPosition * .02f, Quaternion.identity, spawnTransform.parent.parent.GetChild(0));
-        // newEnemy.transform.position = new Vector3(spawnTransform.position.x, 0f, spawnTransform.position.z);
-        // newEnemy.transform.localPosition = new Vector3(newEnemy.transform.position.x, 0f, newEnemy.transform.position.z);
-        // newEnemy.transform.SetParent(spawnTransform.parent.parent.GetChild(0));        
+        EnemyBehaviour newEnemy = Instantiate(enemyPrefab, spawnTransform.transform.localPosition * .02f, Quaternion.identity, spawnTransform.parent.parent.GetChild(0));   
         Vector3 Yposition = new Vector3(newEnemy.transform.position.x * 50f, 0f, newEnemy.transform.position.z * 50f);
         newEnemy.transform.localPosition = new Vector3(Yposition.x, 0f, Yposition.z);
 
@@ -115,7 +112,6 @@ public class EnemyManager : MonoBehaviour
             float rate = GameManager.Instance.spawnRate;
 
             SpawnRand(Mathf.FloorToInt(interval * rate));
-            //print("spawnRate : " + rate);
             yield return new WaitForSeconds(interval);
         }
     }

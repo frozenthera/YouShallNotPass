@@ -5,7 +5,7 @@ using UnityEngine.XR;
 using UnityEngine.XR.ARFoundation;
 
 [RequireComponent(typeof(ARTrackedImageManager))]
-public class ImageTracking : MonoBehaviour
+public class MultipleMarkerTracking : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] placeablePrefabs;
