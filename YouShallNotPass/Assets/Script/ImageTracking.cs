@@ -30,8 +30,8 @@ public class ImageTracking : MonoBehaviour
             }
             else
             {
-                newPrefab.transform.SetParent(baseSceneObj);
-                newPrefab.transform.position = new Vector3(0,0f,0);
+                newPrefab.transform.SetParent(baseSceneObj.GetChild(0).transform);
+                newPrefab.transform.localPosition = new Vector3(0,0f,0);
             }
         }
     }
@@ -63,10 +63,18 @@ public class ImageTracking : MonoBehaviour
     {
         string name = trackedImage.referenceImage.name;
         Vector3 position = trackedImage.transform.position;
-        position = new Vector3(position.x, 1, position.z);
+        Vector3 Yposition = new Vector3(position.x*50f, 0f, position.z*50f);
 
         GameObject prefab = spawnedPrefabs[name];
-        prefab.transform.position = position;
+        if(prefab.transform != baseSceneObj)
+        {
+            prefab.transform.localPosition = new Vector3(Yposition.x, 0f, Yposition.z-10f);                
+        } 
+        else
+        {
+            prefab.transform.position = position;
+        } 
+        
         prefab.SetActive(true);
     }
 }

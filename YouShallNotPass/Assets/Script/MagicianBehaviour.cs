@@ -17,7 +17,6 @@ public class MagicianBehaviour : PieceBehaviour
                     {
                         List<UnitBehaviour> thisGridMap = GameManager.Instance.pieceMap[curPos.X+i, curPos.Y+j];
                         foreach(var unit in thisGridMap){
-                            if(unit == this) continue;
                             if(unit.CompareTag("Enemy"))
                             {
                                 return unit;

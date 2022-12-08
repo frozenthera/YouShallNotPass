@@ -37,20 +37,20 @@ public abstract class UnitBehaviour : MonoBehaviour
         curPos = GetCurGrid();
         UpdateCanvasToCam();
 
-        x = curPos.X;
-        y = curPos.Y;
-        gridText.text = $"{x} , {y}";
+        gridText.text = $"{curHP}";
+        //gridText.text = $"{x} , {y} || {transform.localPosition} || {transform.position}";
+        // gridText.text = $"{transform.parent.transform.eulerAngles}";
     }
 
     public abstract void Destroyed();
 
     protected Grid GetCurGrid()
     {
-        float planeSize = .2f;
+        float planeSize = 10f;
         int x, y;
 
-        x = Mathf.FloorToInt((transform.position.x+planeSize/2) * 3 / planeSize);
-        y = Mathf.FloorToInt((transform.position.z+planeSize/2) * 3 / planeSize);
+        x = Mathf.FloorToInt((transform.localPosition.x+planeSize/2) * 3 / planeSize);
+        y = Mathf.FloorToInt((transform.localPosition.z+planeSize/2) * 3 / planeSize);
 
         Grid updated = new Grid(x,y);
         if(updated.X != curPos.X || updated.Y != curPos.Y)

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8853128073372654252}
   - component: {fileID: 4948408167096756917}
   - component: {fileID: 340678117947064816}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 3, y: 154}
-  m_SizeDelta: {x: 350, y: 42}
+  m_SizeDelta: {x: 2000, y: 42}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4948408167096756917
 CanvasRenderer:
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 8432097605319231304}
   - component: {fileID: 3094121813086595248}
   - component: {fileID: 1956763074470106701}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6615821522504252822}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,16 +407,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0049a628948b73c44a52d6cf528f4f57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 10
+  maxHP: 5
   curHP: 0
   x: 0
   y: 0
-  attack: 2
+  attack: 1
   hpBar: {fileID: 9132893662140682601}
   canvasTran: {fileID: 9098661381819438444}
   gridText: {fileID: 340678117947064816}
   moveDirection: {x: 0, y: 0, z: 1}
-  moveSpeed: 0.02
+  moveSpeed: 0.01
 --- !u!1 &6777097561510920259
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,7 +428,7 @@ GameObject:
   - component: {fileID: 142296020799653790}
   - component: {fileID: 3079958387380878489}
   - component: {fileID: 1093688477477954156}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -502,7 +502,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4800625181694538903}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -539,7 +539,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2938869453862682306}
   - component: {fileID: 9132893662140682601}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
