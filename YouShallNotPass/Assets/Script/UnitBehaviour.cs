@@ -20,6 +20,8 @@ public abstract class UnitBehaviour : MonoBehaviour
     private Slider hpBar;
     [SerializeField]
     private Transform canvasTran;
+    [SerializeField]
+    private Text gridText;
 
 
     protected virtual void Start()
@@ -37,6 +39,7 @@ public abstract class UnitBehaviour : MonoBehaviour
 
         x = curPos.X;
         y = curPos.Y;
+        gridText.text = $"{x} , {y}";
     }
 
     public abstract void Destroyed();

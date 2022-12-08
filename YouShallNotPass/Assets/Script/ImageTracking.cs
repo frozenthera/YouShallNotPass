@@ -13,6 +13,8 @@ public class ImageTracking : MonoBehaviour
     private Dictionary<string, GameObject> spawnedPrefabs = new Dictionary<string, GameObject>();
     private ARTrackedImageManager trackedImageManager;
 
+    private Transform baseSceneObj;
+
     private void Awake()
     {
         trackedImageManager = FindObjectOfType<ARTrackedImageManager>();
@@ -22,6 +24,15 @@ public class ImageTracking : MonoBehaviour
             GameObject newPrefab = Instantiate(prefab, Vector3.zero, Quaternion.identity);
             newPrefab.name = prefab.name;
             spawnedPrefabs.Add(prefab.name, newPrefab);
+            if(prefab.name.Contains("ARScene"))
+            {
+                baseSceneObj = newPrefab.transform;
+            }
+            else
+            {
+                newPrefab.transform.SetParent(baseSceneObj);
+                newPrefab.transform.position = new Vector3(0,.02f,0);
+            }
         }
     }
 
@@ -30,7 +41,7 @@ public class ImageTracking : MonoBehaviour
         trackedImageManager.trackedImagesChanged += ImageChanged;
     }
 
-    private void onDisable()
+    private void OnDisable()
     {
         trackedImageManager.trackedImagesChanged -= ImageChanged;
     }
@@ -52,6 +63,7 @@ public class ImageTracking : MonoBehaviour
     {
         string name = trackedImage.referenceImage.name;
         Vector3 position = trackedImage.transform.position;
+        position = new Vector3(position.x, 1, position.z);
 
         GameObject prefab = spawnedPrefabs[name];
         prefab.transform.position = position;
